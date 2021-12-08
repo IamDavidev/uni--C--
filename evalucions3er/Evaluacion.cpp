@@ -3,11 +3,11 @@
 #include <iostream>
 using namespace std;
 
-//funciones 
-void Imatriz(float mat[5][5]);
-void MatrizFilas(float mat[5][5]);
-void MatrizColumnas(float mat[5][5]);
-void MatrizDiagonal(float  mat[][5]);
+//funciones
+void Imatriz(float mat[][5]);
+void MatrizFilas(float mat[][5]);
+void MatrizColumnas(float mat[][5]);
+void MatrizDiagonal(float mat[][5]);
 
 //funcion main
 main()
@@ -28,74 +28,62 @@ main()
         switch (op)
         {
         case 1:
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    cout << "Ingrese la matriz"<< j << i << ": \n ";
-                    cin >> mat[i][j];
-                }
-            }
+            Imatriz(mat);
             break;
         case 2:
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    suma = suma + mat[i][j];
-                }
-                cout << "La suma de la fila " << i << " es: " << suma << endl;
-                suma = 0;
-            }
+            MatrizFilas(mat);
             break;
-        case 3 :
-            for (int i = 0; i < 5; i++)
-            {
-                for (int j = 0; j < 5; j++)
-                {
-                    suma = suma + mat[j][i];
-                }
-                cout << "La suma de la columna " << i << " es: " << suma << endl;
-                suma = 0;
-            }
+        case 3:
+
+            MatrizColumnas(mat);
             break;
         case 4:
-            MatrizDiagonal(mat);       
+            MatrizDiagonal(mat);
+            break;
+        case 5:
+            cout << "Gracias por usar el programa \n";
             break;
         default:
             cout << "Opcion no valida  \n";
         }
 
-    } while (op = 5);
+    } while (op != 5);
 }
 
+void Imatriz(float mat[5][5])
+{
+    for (int i = 1; i < 6; i++)
+    {
+        for (int j = 1; j < 6; j++)
+        {
+            cout << "Ingrese el valor de la posicion [" << i << "][" << j << "]: ";
+            cin >> mat[i][j];
+        }
+    }
+    
+}
 
 void MatrizDiagonal(float mat[][5])
 {
     float suma = 0;
-    for (int i = 0; i < 5; i++)
+    for (int i = 1; i < 6; i++)
     {
-        for (int j = 0; j < 5; j++)
+        for (int j = 1; j < 6; j++)
         {
             if (i == j)
             {
-                cout << "La diagonal de la matriz es: " << mat[i][j] << endl;
-            }
-            //suma de la diagonal
-            if (i ==j ){
                 suma = suma + mat[i][j];
             }
         }
     }
+    cout << "La suma de la diagonal es: " << suma << endl;
 }
-
-
-void MatrizColumnas(float mat[5][5])
+void MatrizColumnas(float mat[][5])
 {
     float suma = 0;
-    for (int i = 0; i < 5; i++)
+    for (int i = 1; i < 6; i++)
     {
-        for (int j = 0; j < 5; j++)
+        for (int j = 1; j < 6; j++)
         {
             suma = suma + mat[j][i];
         }
@@ -103,27 +91,16 @@ void MatrizColumnas(float mat[5][5])
         suma = 0;
     }
 }
-void MatrizFilas(float mat[5][5])
+void MatrizFilas(float mat[][5])
 {
     float suma = 0;
-    for (int i = 0; i < 5; i++)
+    for (int i = 1; i < 6; i++)
     {
-        for (int j = 0; j < 5; j++)
+        for (int j = 1; j < 6; j++)
         {
             suma = suma + mat[i][j];
         }
         cout << "La suma de la fila " << i << " es: " << suma << endl;
         suma = 0;
-    }
-}
-void Imatriz(float mat[5][5])
-{
-    for (int i = 0; i < 5; i++)
-    {
-        for (int j = 0; j < 5; j++)
-        {
-            cout << mat[i][j] << " ";
-        }
-        cout << endl;
     }
 }

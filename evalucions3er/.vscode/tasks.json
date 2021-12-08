@@ -18,9 +18,6 @@
       "problemMatcher": ["$gcc"],
       "group": "build",
       "detail": "compilador: C:\\MinGW\\bin\\g++.exe"
-    },
-    {
-      "label": "C/C++: g++.exe compilar archivo activo",
     }
   ]
 }
