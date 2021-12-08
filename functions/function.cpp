@@ -12,7 +12,7 @@ float AreaRectangulo();			// sin parametros
 int main()
 {
 	char opcion;
-	float lado, radio, area;
+	float lado, lado2, lado3, lado4, radio, area;
 	cout << "Menu de figuras geometricas : " << endl;
 	cout << "\n a. Cuadrado" << endl;
 	cout << "\n b. Triangulo" << endl;
@@ -32,11 +32,13 @@ int main()
 		break;
 	case 'c':
 		cout << "\n Ingrese el radio del circulo : ";
-		cin >> radio ;
+		cin >> radio;
 		area = AreaCirculo(radio);
+		cout << "\n El area del circulo es : " << area << endl;
 		break;
 	case 'd':
-		AreaRectangulo();
+		area = AreaRectangulo();
+		cout << "\n El area del rectangulo es : " << area << endl;
 		break;
 	default:
 		cout << "\n Opcion no valida ";
@@ -45,10 +47,41 @@ int main()
 	return 0;
 }
 
-
 void AreaCuadrado(float lado)
 {
 	float area;
 	area = lado * lado;
 	cout << "\n El area del cuadrado es : " << area << endl;
+}
+
+void AreaTriangulo()
+{
+	float base, altura, area;
+	cout << "\n Ingrese la base del triangulo : ";
+	cin >> base;
+	cout << "\n Ingrese la altura del triangulo : ";
+	cin >> altura;
+	area = (base * altura) / 2;
+	cout << "\n El area del triangulo es : " << area << endl;
+}
+
+float AreaCirculo(float radio)
+{
+	float area;
+	area = 3.1416 * radio * radio;
+	// cout << "\n El area del circulo es : " << area << endl;
+	return area;
+}
+
+float AreaRectangulo()
+{
+	float base;
+	float altura;
+	float area;
+	cout << "\n Ingrese la base del rectangulo : ";
+	cin >> base;
+	cout << "\n Ingrese la altura del rectangulo : ";
+	cin >> altura;
+	area = base * altura;
+	return area;
 }
