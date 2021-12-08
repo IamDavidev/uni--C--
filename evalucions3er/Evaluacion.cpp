@@ -3,6 +3,12 @@
 #include <iostream>
 using namespace std;
 
+//funciones 
+void Imatriz(float mat[5][5]);
+void MatrizFilas(float mat[5][5]);
+void MatrizColumnas(float mat[5][5]);
+void MatrizDiagonal(float  mat[][5]);
+
 //funcion main
 main()
 {
@@ -31,9 +37,93 @@ main()
                 }
             }
             break;
+        case 2:
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    suma = suma + mat[i][j];
+                }
+                cout << "La suma de la fila " << i << " es: " << suma << endl;
+                suma = 0;
+            }
+            break;
+        case 3 :
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    suma = suma + mat[j][i];
+                }
+                cout << "La suma de la columna " << i << " es: " << suma << endl;
+                suma = 0;
+            }
+            break;
+        case 4:
+            MatrizDiagonal(mat);       
+            break;
         default:
             cout << "Opcion no valida  \n";
         }
 
-    } while (op != 5);
+    } while (op = 5);
+}
+
+
+void MatrizDiagonal(float mat[][5])
+{
+    float suma = 0;
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            if (i == j)
+            {
+                cout << "La diagonal de la matriz es: " << mat[i][j] << endl;
+            }
+            //suma de la diagonal
+            if (i ==j ){
+                suma = suma + mat[i][j];
+            }
+        }
+    }
+}
+
+
+void MatrizColumnas(float mat[5][5])
+{
+    float suma = 0;
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            suma = suma + mat[j][i];
+        }
+        cout << "La suma de la columna " << i << " es: " << suma << endl;
+        suma = 0;
+    }
+}
+void MatrizFilas(float mat[5][5])
+{
+    float suma = 0;
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            suma = suma + mat[i][j];
+        }
+        cout << "La suma de la fila " << i << " es: " << suma << endl;
+        suma = 0;
+    }
+}
+void Imatriz(float mat[5][5])
+{
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            cout << mat[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
